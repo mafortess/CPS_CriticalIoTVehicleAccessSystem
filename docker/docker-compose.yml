@@ -1,0 +1,43 @@
+
+version: "3.7"
+services:
+  # mqtt5 eclipse-mosquitto
+  mqtt5:
+    image: eclipse-mosquitto:2.0.18
+    container_name: mqtt5
+    build:
+      context: .
+      dockerfile: docker/mosquitto/Dockerfile
+    ports:
+      - "1883:1883" #default mqtt port
+      - "9001:9001" #default mqtt port for websockets
+    volumes:
+      - ./mosquitto/config:/mosquitto/config:rw
+      - ./mosquitto/data:/mosquitto/data:rw
+      - ./mosquitto/log:/mosquitto/log:rw
+    restart: unless-stopped
+    
+  # yolo
+  yolo:
+    image: yolo:latest
+    container_name: yolo
+    build:
+      context: .
+      dockerfile: docker/yolo/Dockerfile
+    ports:
+      - "8080:8080" # default port for yolo
+    volumes:
+      - ./yolo/config:/yolo/config:rw
+      - ./yolo/data:/yolo/data:rw
+      - ./yolo/log:/yolo/log:rw
+    restart: unless-stopped
+
+# volumes for mapping data,config and log
+volumes:
+  config:
+  data:
+  log:
+
+networks:
+  default:
+    name: mqtt5-network
