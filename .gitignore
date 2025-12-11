@@ -19,6 +19,7 @@ logs/
 .env.*
 .venv.*
 .venv
+venv/*
 
 # Build outputs
 dist/
