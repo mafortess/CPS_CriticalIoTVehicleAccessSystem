@@ -9,10 +9,10 @@ struct MCP2515 mcp2515(5); // CS pin is GPIO 5
 
 #define GAS_SENSOR_PIN 34  // Gas sensor pin
 #define AIR_QUALITY_PIN 35  // Air Quality sensor pin
-#define GAS_SENSOR_ID 0x610
-#define AIR_QUALITY_SENSOR_ID 0x520
+#define GAS_SENSOR_ID 0x601
+#define AIR_QUALITY_SENSOR_ID 0x501
 
-#define LOOP_DELAY 5000
+#define LOOP_DELAY 1000
 
 AirQualitySensor aq_sensor(AIR_QUALITY_PIN);
 
@@ -53,7 +53,7 @@ void loop() {
   gasSensorValue = analogRead(GAS_SENSOR_PIN);
   gasSensorVolt = (int) (gasSensorValue/4096.0 * 5.0 * 100.0); 
   
-  delay(500);
+  delay(250);
 
   // Air quality sensor reading
   int quality = aq_sensor.slope();
@@ -72,7 +72,7 @@ void loop() {
     }
   }
 
-  delay(500);
+  delay(250);
 
 
   // Prepare CAN transmit message from gas sensor
@@ -89,7 +89,7 @@ void loop() {
     Serial.println(GAS_SENSOR_ID);
   }
 
-  delay(200);
+  delay(250);
 
   // Prepare CAN transmit message from air quality sensor
   canTx.can_id  = AIR_QUALITY_SENSOR_ID;

@@ -11,13 +11,16 @@ struct MCP2515 mcp2515(5); // CS pin is GPIO 5
 
 Servo servoMotor;
 
-#define SERVO_ID_IN 0x321 // Will always receive 0 or 1
+#define SERVO_ID_IN 0x201 // Will always receive 0 or 1
+#define SERVO_ID_IN_BUTTON 0x321 // Will always receive 0 or 1
 struct can_frame canMsgReceived;
 
-#define SERVO_ID_OUT 0x421 // Will send barrier degrees
+#define SERVO_ID_OUT 0x301 // Will send barrier degrees
 struct can_frame canMsgSent;
 
 #define BARRIER_TIMEOUT_MS 5000
+
+#define LOOP_DELAY 500
 
 int lastOrderTimestamp = 0;
 int verbose = 1;
@@ -45,7 +48,7 @@ void loop() {
 
   if (mcp2515.readMessage(&canMsgReceived) == MCP2515::ERROR_OK)
   {
-    if (canMsgReceived.can_id == SERVO_ID_IN)  // Check if the message is from the sender
+    if (canMsgReceived.can_id == SERVO_ID_IN || canMsgReceived.can_id == SERVO_ID_IN_BUTTON)  // Check if the message is from the sender
     {
       
       if (canMsgReceived.data[0] == 0) {
@@ -89,5 +92,5 @@ void loop() {
     Serial.print("[CAN] Error sending message in sensor ");
     Serial.println(SERVO_ID_OUT);
   }
-  delay(100);
+  delay(LOOP_DELAY);
 }
