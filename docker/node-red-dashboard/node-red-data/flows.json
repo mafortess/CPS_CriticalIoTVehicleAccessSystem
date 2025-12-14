@@ -8,6 +8,37 @@
         "env": []
     },
     {
+        "id": "c5c2aa536980514f",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "172.16.130.146",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
         "id": "3bbc97d8d6bae282",
         "type": "ui-base",
         "name": "My Dashboard",
@@ -58,23 +89,23 @@
         "breakpoints": [
             {
                 "name": "Default",
-                "px": 0,
-                "cols": 3
+                "px": "0",
+                "cols": "3"
             },
             {
                 "name": "Tablet",
-                "px": 576,
-                "cols": 6
+                "px": "576",
+                "cols": "6"
             },
             {
                 "name": "Small Desktop",
-                "px": 768,
-                "cols": 9
+                "px": "768",
+                "cols": "9"
             },
             {
                 "name": "Desktop",
-                "px": 1024,
-                "cols": 12
+                "px": "1024",
+                "cols": "12"
             }
         ],
         "order": 1,
@@ -111,36 +142,6 @@
         "groupType": "default"
     },
     {
-        "id": "b177f76b14757da5",
-        "type": "ui-spacer",
-        "group": "6b6002d018d605e2",
-        "name": "spacer",
-        "order": 3,
-        "width": 4,
-        "height": 3,
-        "className": ""
-    },
-    {
-        "id": "b17807a353ce94d4",
-        "type": "ui-spacer",
-        "group": "6b6002d018d605e2",
-        "name": "spacer",
-        "order": 1,
-        "width": 1,
-        "height": 3,
-        "className": ""
-    },
-    {
-        "id": "b1780464df124c20",
-        "type": "ui-spacer",
-        "group": "6b6002d018d605e2",
-        "name": "spacer",
-        "order": 5,
-        "width": 1,
-        "height": 3,
-        "className": ""
-    },
-    {
         "id": "3fa9a8c27f54308c",
         "type": "ui-group",
         "name": "Parking Slots",
@@ -155,143 +156,84 @@
         "groupType": "default"
     },
     {
-        "id": "c5c2aa536980514f",
-        "type": "mqtt-broker",
-        "name": "",
-        "broker": "192.168.1.131",
-        "port": 1883,
-        "clientid": "",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": 4,
-        "keepalive": 60,
-        "cleansession": true,
-        "autoUnsubscribe": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthRetain": "false",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closeRetain": "false",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willRetain": "false",
-        "willPayload": "",
-        "willMsg": {},
-        "userProps": "",
-        "sessionExpiry": ""
-    },
-    {
-        "id": "58c9a0650e7419ed",
-        "type": "ui-gauge",
-        "z": "6d4114a05924097a",
-        "name": "Air Quality",
-        "group": "6b6002d018d605e2",
+        "id": "b1ecc9aae1b3db72",
+        "type": "ui-spacer",
+        "group": "3fa9a8c27f54308c",
+        "name": "spacer",
         "order": 4,
-        "value": "payload",
-        "valueType": "msg",
-        "width": 3,
-        "height": 3,
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "Air Quality",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "units",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#5cd65c",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "600",
-                "color": "#ffc800",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "1000",
-                "color": "#ea5353",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": 0,
-        "max": "1024",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 610,
-        "y": 120,
-        "wires": [
-            []
-        ]
+        "width": 1,
+        "height": 1,
+        "className": ""
     },
     {
-        "id": "0d4f14c60faf2023",
-        "type": "ui-gauge",
-        "z": "6d4114a05924097a",
-        "name": "Gas",
-        "group": "6b6002d018d605e2",
-        "order": 2,
-        "value": "payload",
-        "valueType": "msg",
-        "width": 3,
-        "height": 3,
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "Gas readings",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#5cd65c",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "2.5",
-                "color": "#ffc800",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "4",
-                "color": "#ea5353",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": 0,
-        "max": "5",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 630,
-        "y": 80,
-        "wires": [
-            []
-        ]
+        "id": "b1ecd0036ad48288",
+        "type": "ui-spacer",
+        "group": "3fa9a8c27f54308c",
+        "name": "spacer",
+        "order": 5,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "b1ecd103c69ac266",
+        "type": "ui-spacer",
+        "group": "3fa9a8c27f54308c",
+        "name": "spacer",
+        "order": 7,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "b1ecd1fa6fd104dc",
+        "type": "ui-spacer",
+        "group": "3fa9a8c27f54308c",
+        "name": "spacer",
+        "order": 8,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "b1ecd11ea7112db6",
+        "type": "ui-spacer",
+        "group": "3fa9a8c27f54308c",
+        "name": "spacer",
+        "order": 9,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "b1ecd2caf19dfff8",
+        "type": "ui-spacer",
+        "group": "3fa9a8c27f54308c",
+        "name": "spacer",
+        "order": 11,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "b1ece902ff277c36",
+        "type": "ui-spacer",
+        "group": "3fa9a8c27f54308c",
+        "name": "spacer",
+        "order": 12,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "b1ece94e7c480329",
+        "type": "ui-spacer",
+        "group": "3fa9a8c27f54308c",
+        "name": "spacer",
+        "order": 13,
+        "width": 1,
+        "height": 1,
+        "className": ""
     },
     {
         "id": "0697c40245b6382a",
@@ -313,8 +255,7 @@
                 "76ee39ad44bb3390",
                 "fd6d04f9b5e4e693",
                 "a10d166593d6ca1a",
-                "5b15ec523d298b89",
-                "77857ee846d194e9"
+                "5b15ec523d298b89"
             ]
         ]
     },
@@ -334,96 +275,6 @@
         "broker": "c5c2aa536980514f",
         "x": 860,
         "y": 280,
-        "wires": []
-    },
-    {
-        "id": "a95e45ef67e3df66",
-        "type": "ui-button",
-        "z": "6d4114a05924097a",
-        "group": "1ee110f07b07678e",
-        "name": "",
-        "label": "Open Barrier",
-        "order": 1,
-        "width": "2",
-        "height": "1",
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "{\"barrierCommand\":true}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "",
-        "textColor": "",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 490,
-        "y": 300,
-        "wires": [
-            [
-                "a9c9a3e46d2dd817",
-                "40b5b8c8a4af7d31",
-                "9a7806e5fd3c308e"
-            ]
-        ]
-    },
-    {
-        "id": "a9c9a3e46d2dd817",
-        "type": "debug",
-        "z": "6d4114a05924097a",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 880,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "1d45cb6927b4d328",
-        "type": "ui-led",
-        "z": "6d4114a05924097a",
-        "name": "",
-        "group": "1ee110f07b07678e",
-        "order": 2,
-        "width": "1",
-        "height": "1",
-        "label": "",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "states": [
-            {
-                "value": "false",
-                "valueType": "bool",
-                "color": "#ff0000"
-            },
-            {
-                "value": "true",
-                "valueType": "bool",
-                "color": "#00ff00"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showBorder": true,
-        "showGlow": true,
-        "x": 870,
-        "y": 160,
         "wires": []
     },
     {
@@ -537,67 +388,6 @@
         ]
     },
     {
-        "id": "ff_change_status",
-        "type": "change",
-        "z": "6d4114a05924097a",
-        "name": "Map Status",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "true",
-                "fromt": "bool",
-                "to": "Occupied",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "false",
-                "fromt": "bool",
-                "to": "Free",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 570,
-        "y": 400,
-        "wires": [
-            [
-                "ff_ui_text_slot"
-            ]
-        ]
-    },
-    {
-        "id": "ff_ui_text_slot",
-        "type": "ui-text",
-        "z": "6d4114a05924097a",
-        "group": "3fa9a8c27f54308c",
-        "order": 1,
-        "width": 4,
-        "height": 2,
-        "name": "Slot 1 Status",
-        "label": "Slot number 1 state:",
-        "layout": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 930,
-        "y": 540,
-        "wires": []
-    },
-    {
         "id": "inject_ff_true",
         "type": "inject",
         "z": "6d4114a05924097a",
@@ -614,11 +404,11 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 370,
+        "x": 630,
         "y": 400,
         "wires": [
             [
-                "ff_change_status"
+                "54a7db2b887e077c"
             ]
         ]
     },
@@ -639,74 +429,13 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 370,
+        "x": 630,
         "y": 440,
         "wires": [
             [
-                "ff_change_status"
+                "54a7db2b887e077c"
             ]
         ]
-    },
-    {
-        "id": "cfc8e51605ae6dbc",
-        "type": "change",
-        "z": "6d4114a05924097a",
-        "name": "Map Status",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "true",
-                "fromt": "bool",
-                "to": "Occupied",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "false",
-                "fromt": "bool",
-                "to": "Free",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 570,
-        "y": 500,
-        "wires": [
-            [
-                "0a9779af21bc89a2"
-            ]
-        ]
-    },
-    {
-        "id": "0a9779af21bc89a2",
-        "type": "ui-text",
-        "z": "6d4114a05924097a",
-        "group": "3fa9a8c27f54308c",
-        "order": 2,
-        "width": 4,
-        "height": 2,
-        "name": "Slot 2 Status",
-        "label": "Slot number 2 state:",
-        "layout": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 930,
-        "y": 640,
-        "wires": []
     },
     {
         "id": "06dea599a347858d",
@@ -725,11 +454,11 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 370,
+        "x": 630,
         "y": 500,
         "wires": [
             [
-                "cfc8e51605ae6dbc"
+                "38b04841c2853c37"
             ]
         ]
     },
@@ -750,74 +479,13 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 370,
+        "x": 630,
         "y": 540,
         "wires": [
             [
-                "cfc8e51605ae6dbc"
+                "38b04841c2853c37"
             ]
         ]
-    },
-    {
-        "id": "a8070158196f3c0e",
-        "type": "change",
-        "z": "6d4114a05924097a",
-        "name": "Map Status",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "true",
-                "fromt": "bool",
-                "to": "Occupied",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "false",
-                "fromt": "bool",
-                "to": "Free",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 570,
-        "y": 600,
-        "wires": [
-            [
-                "3931bd72d9f08e8e"
-            ]
-        ]
-    },
-    {
-        "id": "3931bd72d9f08e8e",
-        "type": "ui-text",
-        "z": "6d4114a05924097a",
-        "group": "3fa9a8c27f54308c",
-        "order": 3,
-        "width": 4,
-        "height": 2,
-        "name": "Slot 3 Status",
-        "label": "Slot number 3 state:",
-        "layout": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 930,
-        "y": 740,
-        "wires": []
     },
     {
         "id": "88394ede15d8a67c",
@@ -836,11 +504,11 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 370,
+        "x": 630,
         "y": 600,
         "wires": [
             [
-                "a8070158196f3c0e"
+                "c3b34c0a8e29d249"
             ]
         ]
     },
@@ -861,11 +529,11 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 370,
+        "x": 630,
         "y": 640,
         "wires": [
             [
-                "a8070158196f3c0e"
+                "c3b34c0a8e29d249"
             ]
         ]
     },
@@ -887,8 +555,7 @@
             [
                 "1756c63a5aad4ce8",
                 "ef42ea02072b95a2",
-                "4709beb843b9f8ba",
-                "5d8bf22ec979f939"
+                "4709beb843b9f8ba"
             ]
         ]
     },
@@ -953,22 +620,6 @@
         ]
     },
     {
-        "id": "77857ee846d194e9",
-        "type": "debug",
-        "z": "6d4114a05924097a",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 280,
-        "y": 840,
-        "wires": []
-    },
-    {
         "id": "0b68c6f86340f814",
         "type": "change",
         "z": "6d4114a05924097a",
@@ -1002,7 +653,8 @@
         "y": 700,
         "wires": [
             [
-                "ff_ui_text_slot"
+                "ff_ui_text_slot",
+                "54a7db2b887e077c"
             ]
         ]
     },
@@ -1040,7 +692,8 @@
         "y": 740,
         "wires": [
             [
-                "0a9779af21bc89a2"
+                "0a9779af21bc89a2",
+                "38b04841c2853c37"
             ]
         ]
     },
@@ -1078,38 +731,275 @@
         "y": 780,
         "wires": [
             [
-                "3931bd72d9f08e8e"
+                "3931bd72d9f08e8e",
+                "c3b34c0a8e29d249"
             ]
         ]
     },
     {
-        "id": "5d8bf22ec979f939",
-        "type": "debug",
+        "id": "a95e45ef67e3df66",
+        "type": "ui-button",
         "z": "6d4114a05924097a",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 450,
-        "y": 840,
+        "group": "1ee110f07b07678e",
+        "name": "",
+        "label": "Open Barrier",
+        "order": 1,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"barrierCommand\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 610,
+        "y": 280,
+        "wires": [
+            [
+                "40b5b8c8a4af7d31"
+            ]
+        ]
+    },
+    {
+        "id": "ff_ui_text_slot",
+        "type": "ui-text",
+        "z": "6d4114a05924097a",
+        "group": "3fa9a8c27f54308c",
+        "order": 1,
+        "width": 4,
+        "height": "1",
+        "name": "Slot 1 Status",
+        "label": "Slot number 1:",
+        "layout": "col-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 890,
+        "y": 400,
         "wires": []
     },
     {
-        "id": "9a7806e5fd3c308e",
+        "id": "0a9779af21bc89a2",
+        "type": "ui-text",
+        "z": "6d4114a05924097a",
+        "group": "3fa9a8c27f54308c",
+        "order": 2,
+        "width": 4,
+        "height": "1",
+        "name": "Slot 2 Status",
+        "label": "Slot number 2:",
+        "layout": "col-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 890,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "3931bd72d9f08e8e",
+        "type": "ui-text",
+        "z": "6d4114a05924097a",
+        "group": "3fa9a8c27f54308c",
+        "order": 3,
+        "width": 4,
+        "height": "1",
+        "name": "Slot 3 Status",
+        "label": "Slot number 3:",
+        "layout": "col-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 890,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "58c9a0650e7419ed",
+        "type": "ui-gauge",
+        "z": "6d4114a05924097a",
+        "name": "Air Quality",
+        "group": "6b6002d018d605e2",
+        "order": 3,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Air Quality",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "600",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "1000",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "1024",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 590,
+        "y": 120,
+        "wires": [
+            [
+                "a7327d98f1f8b32a"
+            ]
+        ]
+    },
+    {
+        "id": "0d4f14c60faf2023",
+        "type": "ui-gauge",
+        "z": "6d4114a05924097a",
+        "name": "Gas",
+        "group": "6b6002d018d605e2",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Gas readings",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "2.5",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "5",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 570,
+        "y": 80,
+        "wires": [
+            [
+                "920f7cee72b15d83"
+            ]
+        ]
+    },
+    {
+        "id": "1d45cb6927b4d328",
+        "type": "ui-led",
+        "z": "6d4114a05924097a",
+        "name": "Barrier LED",
+        "group": "1ee110f07b07678e",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "states": [
+            {
+                "value": "false",
+                "valueType": "bool",
+                "color": "#ff0000"
+            },
+            {
+                "value": "true",
+                "valueType": "bool",
+                "color": "#00ff00"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showBorder": true,
+        "showGlow": true,
+        "x": 890,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a7327d98f1f8b32a",
         "type": "change",
         "z": "6d4114a05924097a",
-        "name": "",
+        "name": "setTopicAirQuality",
         "rules": [
             {
                 "t": "set",
-                "p": "payload",
+                "p": "topic",
                 "pt": "msg",
-                "to": "payload.barrierCommand",
-                "tot": "msg"
+                "to": "airQuality",
+                "tot": "str"
             }
         ],
         "action": "",
@@ -1117,12 +1007,259 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 680,
-        "y": 240,
+        "x": 870,
+        "y": 120,
         "wires": [
             [
-                "1d45cb6927b4d328"
+                "ebdbf9adca93414f"
             ]
         ]
+    },
+    {
+        "id": "920f7cee72b15d83",
+        "type": "change",
+        "z": "6d4114a05924097a",
+        "name": "setTopicGas",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Gas",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 890,
+        "y": 80,
+        "wires": [
+            [
+                "a997af77805bf2a9"
+            ]
+        ]
+    },
+    {
+        "id": "a997af77805bf2a9",
+        "type": "ui-chart",
+        "z": "6d4114a05924097a",
+        "group": "6b6002d018d605e2",
+        "name": "Gas Chart",
+        "label": "chart",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "5.0",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "3",
+        "height": "3",
+        "className": "",
+        "interpolation": "linear",
+        "x": 1110,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ebdbf9adca93414f",
+        "type": "ui-chart",
+        "z": "6d4114a05924097a",
+        "group": "6b6002d018d605e2",
+        "name": "Air Quality Chart",
+        "label": "chart",
+        "order": 4,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "1024",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "3",
+        "height": "3",
+        "className": "",
+        "interpolation": "linear",
+        "x": 1100,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "54a7db2b887e077c",
+        "type": "ui-led",
+        "z": "6d4114a05924097a",
+        "name": "Slot 1 LED",
+        "group": "3fa9a8c27f54308c",
+        "order": 6,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "states": [
+            {
+                "value": "false",
+                "valueType": "bool",
+                "color": "#ff0000"
+            },
+            {
+                "value": "true",
+                "valueType": "bool",
+                "color": "#00ff00"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showBorder": true,
+        "showGlow": true,
+        "x": 970,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "38b04841c2853c37",
+        "type": "ui-led",
+        "z": "6d4114a05924097a",
+        "name": "Slot 2 LED",
+        "group": "3fa9a8c27f54308c",
+        "order": 10,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "states": [
+            {
+                "value": "false",
+                "valueType": "bool",
+                "color": "#ff0000"
+            },
+            {
+                "value": "true",
+                "valueType": "bool",
+                "color": "#00ff00"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showBorder": true,
+        "showGlow": true,
+        "x": 970,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "c3b34c0a8e29d249",
+        "type": "ui-led",
+        "z": "6d4114a05924097a",
+        "name": "Slot 3 LED",
+        "group": "3fa9a8c27f54308c",
+        "order": 14,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "states": [
+            {
+                "value": "false",
+                "valueType": "bool",
+                "color": "#ff0000"
+            },
+            {
+                "value": "true",
+                "valueType": "bool",
+                "color": "#00ff00"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showBorder": true,
+        "showGlow": true,
+        "x": 970,
+        "y": 780,
+        "wires": []
     }
 ]

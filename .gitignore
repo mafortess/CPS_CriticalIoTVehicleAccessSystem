@@ -51,3 +51,8 @@ docker/mosquitto/config/pwfile
 
 # Results
 results*
+
+# Node-RED data
+docker/node-red-dashboard/node-red-data/*
+!docker/node-red-dashboard/node-red-data/flows.json
+!docker/node-red-dashboard/node-red-data/package.json
