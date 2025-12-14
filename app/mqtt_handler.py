@@ -50,11 +50,11 @@ def process_image_with_yolo(image_data, url=None):
             files = {'image': ('image.jpg', image_data, 'image/jpeg')}
             
             # Make request to YOLO API
-            response = requests.post(f"{YOLO_API_URL}/api/anpr", files=files)
+            response = requests.post(f"{YOLO_API_URL}/api/anpr", files=files,verify="/home/mah-iot/certs/yolo.crt")
         else:
             # Make request to YOLO API
             print(f"Processing image from URL: {url}")
-            response = requests.get(f"{YOLO_API_URL}/api/anpr/url", params={'image': url})
+            response = requests.get(f"{YOLO_API_URL}/api/anpr/url", params={'image': url}, verify="/home/mah-iot/certs/yolo.crt")
         
         if response.status_code == 200:
             result = response.json()

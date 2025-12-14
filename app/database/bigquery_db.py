@@ -4,7 +4,8 @@ import uuid
 
 class BigQueryDB:
     def __init__(self, project_id):
-        self.client = bigquery.Client(project=project_id)
+        # self.client = bigquery.Client(project=project_id)
+        self.client = None # bigquery.Client(project=project_id) # no hacer aquí, BLOQUEANTE
         self.dataset_id = "IoT2"
         self.tables = {
             "User": "User",

@@ -3,8 +3,8 @@ import paho.mqtt.client as mqtt
 
 BROKER = "localhost"
 PORT = 1883
-USERNAME = "user"  # Replace with actual username
-PASSWORD = "user123"  # Replace with actual password
+USERNAME = "mqtt_iot2"  # Replace with actual username
+PASSWORD = "mah-iot2"  # Replace with actual password
 
 TOPIC_GATE_STATUS = "gate/1/status"
 TOPIC_GATE_ACCESS = "gate/1/access"
