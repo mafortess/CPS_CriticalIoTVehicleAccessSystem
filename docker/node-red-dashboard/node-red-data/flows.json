@@ -80,7 +80,7 @@
     {
         "id": "57682f0483bc4b0f",
         "type": "ui-page",
-        "name": "Page 1",
+        "name": "SCADA",
         "ui": "3bbc97d8d6bae282",
         "path": "/page1",
         "icon": "home",
@@ -110,8 +110,8 @@
         ],
         "order": 1,
         "className": "",
-        "visible": true,
-        "disabled": false
+        "visible": "true",
+        "disabled": "false"
     },
     {
         "id": "6b6002d018d605e2",
@@ -234,6 +234,56 @@
         "width": 1,
         "height": 1,
         "className": ""
+    },
+    {
+        "id": "ba2ca28041901641",
+        "type": "ui-page",
+        "name": "Logs",
+        "ui": "3bbc97d8d6bae282",
+        "path": "/page2",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "4a0ef79d6f74f3df",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 2,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "3efef5bc54733a7b",
+        "type": "ui-group",
+        "name": "Logs",
+        "page": "ba2ca28041901641",
+        "width": 12,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
     },
     {
         "id": "0697c40245b6382a",
@@ -653,7 +703,6 @@
         "y": 700,
         "wires": [
             [
-                "ff_ui_text_slot",
                 "54a7db2b887e077c"
             ]
         ]
@@ -692,7 +741,6 @@
         "y": 740,
         "wires": [
             [
-                "0a9779af21bc89a2",
                 "38b04841c2853c37"
             ]
         ]
@@ -731,7 +779,6 @@
         "y": 780,
         "wires": [
             [
-                "3931bd72d9f08e8e",
                 "c3b34c0a8e29d249"
             ]
         ]
@@ -794,8 +841,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 890,
-        "y": 400,
+        "x": 970,
+        "y": 560,
         "wires": []
     },
     {
@@ -817,8 +864,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 890,
-        "y": 440,
+        "x": 970,
+        "y": 600,
         "wires": []
     },
     {
@@ -840,8 +887,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 890,
-        "y": 480,
+        "x": 970,
+        "y": 640,
         "wires": []
     },
     {
@@ -1261,5 +1308,70 @@
         "x": 970,
         "y": 780,
         "wires": []
+    },
+    {
+        "id": "d081a28c8f0d2ee0",
+        "type": "function",
+        "z": "6d4114a05924097a",
+        "name": "Logging",
+        "func": "// Get the current log from context (or start empty)\nvar currentLog = flow.get(\"myLog\") || \"\";\n\n// Add the new message to the top (or bottom)\n// <br> creates a new line in HTML\nvar newLine = new Date().toLocaleTimeString() + \": \" + msg.payload + \"<br>\";\n\n// Combine them (Newest on top)\ncurrentLog = newLine + currentLog;\n\n// OPTIONAL: Limit the log size so your browser doesn't crash\n// This keeps roughly the last 5000 characters\nif (currentLog.length > 5000) {\n    currentLog = currentLog.substring(0, 5000);\n}\n\n// Save it back to context\nflow.set(\"myLog\", currentLog);\n\n// Send to the Dashboard Text Node\nmsg.payload = currentLog;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 40,
+        "wires": [
+            [
+                "461a5a5633c08e3b"
+            ]
+        ]
+    },
+    {
+        "id": "461a5a5633c08e3b",
+        "type": "ui-text",
+        "z": "6d4114a05924097a",
+        "group": "3efef5bc54733a7b",
+        "order": 1,
+        "width": 0,
+        "height": 10,
+        "name": "Log",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 570,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "1cda1efbc5758d5d",
+        "type": "mqtt in",
+        "z": "6d4114a05924097a",
+        "name": "",
+        "topic": "ids/alerts",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c5c2aa536980514f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 40,
+        "wires": [
+            [
+                "d081a28c8f0d2ee0"
+            ]
+        ]
     }
 ]
