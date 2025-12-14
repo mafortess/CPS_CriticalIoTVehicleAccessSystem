@@ -1,0 +1,12 @@
+services:
+  node-red:
+    image: nodered/node-red:latest
+    container_name: parking_dashboard
+    restart: unless-stopped
+    ports:
+      - "1880:1880"
+    environment:
+      - TZ=Europe/Madrid
+    volumes:
+      # Maps the local folder to the container
+      - ./node-red-data:/data

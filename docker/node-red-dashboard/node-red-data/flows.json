@@ -1,0 +1,1128 @@
+[
+    {
+        "id": "6d4114a05924097a",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3bbc97d8d6bae282",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "4a0ef79d6f74f3df",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "57682f0483bc4b0f",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "3bbc97d8d6bae282",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "4a0ef79d6f74f3df",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "6b6002d018d605e2",
+        "type": "ui-group",
+        "name": "Ambient Sensors",
+        "page": "57682f0483bc4b0f",
+        "width": 12,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "1ee110f07b07678e",
+        "type": "ui-group",
+        "name": "Barrier Controls",
+        "page": "57682f0483bc4b0f",
+        "width": 6,
+        "height": 1,
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "b177f76b14757da5",
+        "type": "ui-spacer",
+        "group": "6b6002d018d605e2",
+        "name": "spacer",
+        "order": 3,
+        "width": 4,
+        "height": 3,
+        "className": ""
+    },
+    {
+        "id": "b17807a353ce94d4",
+        "type": "ui-spacer",
+        "group": "6b6002d018d605e2",
+        "name": "spacer",
+        "order": 1,
+        "width": 1,
+        "height": 3,
+        "className": ""
+    },
+    {
+        "id": "b1780464df124c20",
+        "type": "ui-spacer",
+        "group": "6b6002d018d605e2",
+        "name": "spacer",
+        "order": 5,
+        "width": 1,
+        "height": 3,
+        "className": ""
+    },
+    {
+        "id": "3fa9a8c27f54308c",
+        "type": "ui-group",
+        "name": "Parking Slots",
+        "page": "57682f0483bc4b0f",
+        "width": 12,
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "c5c2aa536980514f",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.131",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "58c9a0650e7419ed",
+        "type": "ui-gauge",
+        "z": "6d4114a05924097a",
+        "name": "Air Quality",
+        "group": "6b6002d018d605e2",
+        "order": 4,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Air Quality",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "600",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "1000",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "1024",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 610,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0d4f14c60faf2023",
+        "type": "ui-gauge",
+        "z": "6d4114a05924097a",
+        "name": "Gas",
+        "group": "6b6002d018d605e2",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Gas readings",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "2.5",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "5",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 630,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0697c40245b6382a",
+        "type": "mqtt in",
+        "z": "6d4114a05924097a",
+        "name": "",
+        "topic": "gate/1/sensors",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c5c2aa536980514f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "76ee39ad44bb3390",
+                "fd6d04f9b5e4e693",
+                "a10d166593d6ca1a",
+                "5b15ec523d298b89",
+                "77857ee846d194e9"
+            ]
+        ]
+    },
+    {
+        "id": "40b5b8c8a4af7d31",
+        "type": "mqtt out",
+        "z": "6d4114a05924097a",
+        "name": "",
+        "topic": "gate/1/actuators",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c5c2aa536980514f",
+        "x": 860,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "a95e45ef67e3df66",
+        "type": "ui-button",
+        "z": "6d4114a05924097a",
+        "group": "1ee110f07b07678e",
+        "name": "",
+        "label": "Open Barrier",
+        "order": 1,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"barrierCommand\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 490,
+        "y": 300,
+        "wires": [
+            [
+                "a9c9a3e46d2dd817",
+                "40b5b8c8a4af7d31",
+                "9a7806e5fd3c308e"
+            ]
+        ]
+    },
+    {
+        "id": "a9c9a3e46d2dd817",
+        "type": "debug",
+        "z": "6d4114a05924097a",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "1d45cb6927b4d328",
+        "type": "ui-led",
+        "z": "6d4114a05924097a",
+        "name": "",
+        "group": "1ee110f07b07678e",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "states": [
+            {
+                "value": "false",
+                "valueType": "bool",
+                "color": "#ff0000"
+            },
+            {
+                "value": "true",
+                "valueType": "bool",
+                "color": "#00ff00"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showBorder": true,
+        "showGlow": true,
+        "x": 870,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "76ee39ad44bb3390",
+        "type": "function",
+        "z": "6d4114a05924097a",
+        "name": "getBarrierState",
+        "func": "// (Assuming your MQTT node is set to output a parsed JSON Object)\nvar data = msg.payload;\n\n// 2. Check if the specific property exists\nif (data && data.hasOwnProperty(\"isBarrierOpen\")) {\n    \n    // 3. Set the payload to the boolean value\n    // This effectively strips away the rest of the object\n    msg.payload = data.isBarrierOpen;\n    \n    // 4. Send the message to the LED\n    return msg;\n}\n\n// 5. If the property doesn't exist, return null\n// This stops the flow completely, so the LED ignores this message.\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "1d45cb6927b4d328"
+            ]
+        ]
+    },
+    {
+        "id": "2d89023eadc7b106",
+        "type": "inject",
+        "z": "6d4114a05924097a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "1d45cb6927b4d328"
+            ]
+        ]
+    },
+    {
+        "id": "108ac87db78d2a9b",
+        "type": "inject",
+        "z": "6d4114a05924097a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 370,
+        "y": 240,
+        "wires": [
+            [
+                "1d45cb6927b4d328"
+            ]
+        ]
+    },
+    {
+        "id": "a10d166593d6ca1a",
+        "type": "function",
+        "z": "6d4114a05924097a",
+        "name": "getAirQuality",
+        "func": "// (Assuming your MQTT node is set to output a parsed JSON Object)\nvar data = msg.payload;\n\n// 2. Check if the specific property exists\nif (data && data.hasOwnProperty(\"airQuality\")) {\n    \n    // 3. Set the payload to the boolean value\n    // This effectively strips away the rest of the object\n    msg.payload = data.airQuality;\n    \n    // 4. Send the message to the LED\n    return msg;\n}\n\n// 5. If the property doesn't exist, return null\n// This stops the flow completely, so the LED ignores this message.\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 120,
+        "wires": [
+            [
+                "58c9a0650e7419ed"
+            ]
+        ]
+    },
+    {
+        "id": "fd6d04f9b5e4e693",
+        "type": "function",
+        "z": "6d4114a05924097a",
+        "name": "getGas",
+        "func": "// (Assuming your MQTT node is set to output a parsed JSON Object)\nvar data = msg.payload;\n\n// 2. Check if the specific property exists\nif (data && data.hasOwnProperty(\"gas\")) {\n    \n    // 3. Set the payload to the boolean value\n    // This effectively strips away the rest of the object\n    msg.payload = data.gas;\n    \n    // 4. Send the message to the LED\n    return msg;\n}\n\n// 5. If the property doesn't exist, return null\n// This stops the flow completely, so the LED ignores this message.\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 80,
+        "wires": [
+            [
+                "0d4f14c60faf2023"
+            ]
+        ]
+    },
+    {
+        "id": "ff_change_status",
+        "type": "change",
+        "z": "6d4114a05924097a",
+        "name": "Map Status",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "Occupied",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "Free",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 400,
+        "wires": [
+            [
+                "ff_ui_text_slot"
+            ]
+        ]
+    },
+    {
+        "id": "ff_ui_text_slot",
+        "type": "ui-text",
+        "z": "6d4114a05924097a",
+        "group": "3fa9a8c27f54308c",
+        "order": 1,
+        "width": 4,
+        "height": 2,
+        "name": "Slot 1 Status",
+        "label": "Slot number 1 state:",
+        "layout": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 930,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "inject_ff_true",
+        "type": "inject",
+        "z": "6d4114a05924097a",
+        "name": "True",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 370,
+        "y": 400,
+        "wires": [
+            [
+                "ff_change_status"
+            ]
+        ]
+    },
+    {
+        "id": "inject_ff_false",
+        "type": "inject",
+        "z": "6d4114a05924097a",
+        "name": "False",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 370,
+        "y": 440,
+        "wires": [
+            [
+                "ff_change_status"
+            ]
+        ]
+    },
+    {
+        "id": "cfc8e51605ae6dbc",
+        "type": "change",
+        "z": "6d4114a05924097a",
+        "name": "Map Status",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "Occupied",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "Free",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 500,
+        "wires": [
+            [
+                "0a9779af21bc89a2"
+            ]
+        ]
+    },
+    {
+        "id": "0a9779af21bc89a2",
+        "type": "ui-text",
+        "z": "6d4114a05924097a",
+        "group": "3fa9a8c27f54308c",
+        "order": 2,
+        "width": 4,
+        "height": 2,
+        "name": "Slot 2 Status",
+        "label": "Slot number 2 state:",
+        "layout": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 930,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "06dea599a347858d",
+        "type": "inject",
+        "z": "6d4114a05924097a",
+        "name": "True",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 370,
+        "y": 500,
+        "wires": [
+            [
+                "cfc8e51605ae6dbc"
+            ]
+        ]
+    },
+    {
+        "id": "7e09c3dca1fc5bd4",
+        "type": "inject",
+        "z": "6d4114a05924097a",
+        "name": "False",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 370,
+        "y": 540,
+        "wires": [
+            [
+                "cfc8e51605ae6dbc"
+            ]
+        ]
+    },
+    {
+        "id": "a8070158196f3c0e",
+        "type": "change",
+        "z": "6d4114a05924097a",
+        "name": "Map Status",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "Occupied",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "Free",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 600,
+        "wires": [
+            [
+                "3931bd72d9f08e8e"
+            ]
+        ]
+    },
+    {
+        "id": "3931bd72d9f08e8e",
+        "type": "ui-text",
+        "z": "6d4114a05924097a",
+        "group": "3fa9a8c27f54308c",
+        "order": 3,
+        "width": 4,
+        "height": 2,
+        "name": "Slot 3 Status",
+        "label": "Slot number 3 state:",
+        "layout": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 930,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "88394ede15d8a67c",
+        "type": "inject",
+        "z": "6d4114a05924097a",
+        "name": "True",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 370,
+        "y": 600,
+        "wires": [
+            [
+                "a8070158196f3c0e"
+            ]
+        ]
+    },
+    {
+        "id": "f536d1582f7f68c2",
+        "type": "inject",
+        "z": "6d4114a05924097a",
+        "name": "False",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 370,
+        "y": 640,
+        "wires": [
+            [
+                "a8070158196f3c0e"
+            ]
+        ]
+    },
+    {
+        "id": "5b15ec523d298b89",
+        "type": "function",
+        "z": "6d4114a05924097a",
+        "name": "getSlotStatuses",
+        "func": "// (Assuming your MQTT node is set to output a parsed JSON Object)\nvar data = msg.payload;\n\n// 2. Check if the specific property exists\nif (data && data.hasOwnProperty(\"isSlotOccupied\")) {\n    \n    msg.payload = {};\n    const newObj = {};\n    for (const key in data.isSlotOccupied) {\n    // Implicitly converts string key to int for math\n        const newKey = parseInt(key) % 10; \n        newObj[newKey] = data.isSlotOccupied[key];\n    }\n    \n    msg.payload = newObj;\n    \n    return msg;\n}\n\n// 5. If the property doesn't exist, return null\n// This stops the flow completely, so the LED ignores this message.\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 700,
+        "wires": [
+            [
+                "1756c63a5aad4ce8",
+                "ef42ea02072b95a2",
+                "4709beb843b9f8ba",
+                "5d8bf22ec979f939"
+            ]
+        ]
+    },
+    {
+        "id": "1756c63a5aad4ce8",
+        "type": "function",
+        "z": "6d4114a05924097a",
+        "name": "getSlot1Status",
+        "func": "// (Assuming your MQTT node is set to output a parsed JSON Object)\nvar data = msg.payload;\n\n// 2. Check if the specific property exists\nif (data && data.hasOwnProperty(\"1\")) {\n    msg.payload = data[\"1\"];\n    return msg;\n}\n\n// 5. If the property doesn't exist, return null\n// This stops the flow completely, so the LED ignores this message.\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 700,
+        "wires": [
+            [
+                "0b68c6f86340f814"
+            ]
+        ]
+    },
+    {
+        "id": "ef42ea02072b95a2",
+        "type": "function",
+        "z": "6d4114a05924097a",
+        "name": "getSlot2Status",
+        "func": "// (Assuming your MQTT node is set to output a parsed JSON Object)\nvar data = msg.payload;\n\n// 2. Check if the specific property exists\nif (data && data.hasOwnProperty(\"2\")) {\n    msg.payload = data[\"2\"];\n    return msg;\n}\n\n// 5. If the property doesn't exist, return null\n// This stops the flow completely, so the LED ignores this message.\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 740,
+        "wires": [
+            [
+                "84a7801f272b434b"
+            ]
+        ]
+    },
+    {
+        "id": "4709beb843b9f8ba",
+        "type": "function",
+        "z": "6d4114a05924097a",
+        "name": "getSlot3Status",
+        "func": "// (Assuming your MQTT node is set to output a parsed JSON Object)\nvar data = msg.payload;\n\n// 2. Check if the specific property exists\nif (data && data.hasOwnProperty(\"3\")) {\n    msg.payload = data[\"3\"];\n    return msg;\n}\n\n// 5. If the property doesn't exist, return null\n// This stops the flow completely, so the LED ignores this message.\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 780,
+        "wires": [
+            [
+                "ae90641ecf29bd55"
+            ]
+        ]
+    },
+    {
+        "id": "77857ee846d194e9",
+        "type": "debug",
+        "z": "6d4114a05924097a",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "0b68c6f86340f814",
+        "type": "change",
+        "z": "6d4114a05924097a",
+        "name": "Map Status",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "Occupied",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "Free",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 700,
+        "wires": [
+            [
+                "ff_ui_text_slot"
+            ]
+        ]
+    },
+    {
+        "id": "84a7801f272b434b",
+        "type": "change",
+        "z": "6d4114a05924097a",
+        "name": "Map Status",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "Occupied",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "Free",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 740,
+        "wires": [
+            [
+                "0a9779af21bc89a2"
+            ]
+        ]
+    },
+    {
+        "id": "ae90641ecf29bd55",
+        "type": "change",
+        "z": "6d4114a05924097a",
+        "name": "Map Status",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "Occupied",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "Free",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 780,
+        "wires": [
+            [
+                "3931bd72d9f08e8e"
+            ]
+        ]
+    },
+    {
+        "id": "5d8bf22ec979f939",
+        "type": "debug",
+        "z": "6d4114a05924097a",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "9a7806e5fd3c308e",
+        "type": "change",
+        "z": "6d4114a05924097a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.barrierCommand",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 240,
+        "wires": [
+            [
+                "1d45cb6927b4d328"
+            ]
+        ]
+    }
+]
