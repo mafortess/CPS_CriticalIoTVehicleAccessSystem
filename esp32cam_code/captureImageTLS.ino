@@ -5,10 +5,7 @@
 #include <EloquentSurveillance.h>
 #include "TelegramChat.h"
 #include <base64.h>
-#include "mbedtls/gcm.h"
-#include "mbedtls/aes.h"
-#include "mbedtls/entropy.h"
-#include "mbedtls/ctr_drbg.h"
+#include <WiFiClientSecure.h>
 
 // WiFi Settings
 #define WIFI_SSID "ESP32_AP"
@@ -24,6 +21,9 @@
 // Webserver object
 WebServer server(80);
 
+WiFiClientSecure secureClient;
+PubSubClient mqtt_client(secureClient);
+
 // Motion detection
 EloquentSurveillance::Motion motion;
 
@@ -32,20 +32,56 @@ EloquentSurveillance::TelegramChat chat(BOT_TOKEN, CHAT_ID);
 
 // MQTT Client
 //#define MQTT_SERVER "192.168.50.1"
-#define MQTT_SERVER "192.168.1.133"
+// #define MQTT_SERVER "192.168.1.133"
+#define MQTT_SERVER "192.168.70.1"
 #define MQTT_USER "mqtt_cps_esp32"
-#define MQTT_PASS "mah-mah_cps_esp32"
+#define MQTT_PASS "mah_cps_esp32"
 
 String DEVICE_ID;
 
-WiFiClient wClient;
-PubSubClient mqtt_client(wClient);
+// WiFiClient wClient;
+// PubSubClient mqtt_client(wClient);
 
 String TOPIC_STATUS;
 String TOPIC_SEND_PICTURE;
 String TOPIC_SERVER_RESPONSE;
 String TOPIC_NOTIFY_PICTURE = "picture/notify";
 String TOPIC_NOTIFY_MOTION_DETECTED = "motion/notify";
+
+const char* root_ca PROGMEM = R"EOF(
+  -----BEGIN CERTIFICATE-----
+MIIFmzCCA4OgAwIBAgIUWk1VEYivDH+W7bPRsWQ7F7oEeQowDQYJKoZIhvcNAQEL
+BQAwXTELMAkGA1UEBhMCRVMxDzANBgNVBAgMBk1hbGFnYTEMMAoGA1UEBwwDVU1B
+MRAwDgYDVQQKDAdJb1QtTGFiMQswCQYDVQQLDAJDQTEQMA4GA1UEAwwHaW90Mi1j
+YTAeFw0yNTEyMTUwMDQxMDRaFw0yNjEyMTUwMDQxMDRaMF0xCzAJBgNVBAYTAkVT
+MQ8wDQYDVQQIDAZNYWxhZ2ExDDAKBgNVBAcMA1VNQTEQMA4GA1UECgwHSW9ULUxh
+YjELMAkGA1UECwwCQ0ExEDAOBgNVBAMMB2lvdDItY2EwggIiMA0GCSqGSIb3DQEB
+AQUAA4ICDwAwggIKAoICAQC23v5ajTcTIa3RKZlLV00z54X5lw8qu+9vo2f84UB1
+YHxNMY73iO54bwbP38D4ye3bpeD4aBcAfyZ5Ju+njabNRn8SdmjONwJnSsbSHO+q
+5RXt6W6y+j7dOi+G0n4z4kqTmtQx3KQiaTpjjkYC0lZ+UX5SD2ITdv10Os6s7bDK
+wKn7jm2PYf1UWv3g2p7O/Xb2SCiajgOOScMKCHXC7PWT9AZ8CN1j/BGs1MFFj0rU
+HGotrRWqlle9P3NpgkxMIAvku3j/DEQBxHSdaTn5U45DejBf/sRYnF0HgA6kq5Su
+F/gOUKwSJx6JSHnWtsj9d6WhglfTdN9svsJZdmavtP+fdSjkmICGSfoUobB4C3ra
+tdWgIrl7OkRU/kagRF5ww8ppzn9XI7eCg/Mn8gENu+j2teg3AlxhszYJHDpFmxmA
+A2hKngih2wmtrceC9DoVdwll7MZ9VjTErkgwG5B91TGlAHNhmoOI0w9P0D18H207
+eOFjqAXu6iqEIWCtfEgGHZrmhcc6WX96c4/NZq6H1aicnI7yDfAZylcGGynfMGgH
+McFfVCeI6ewMeDcqP7W5X8mbVKQwhukZqqKl28SBYTadMjkmaYmFA0V9A3DvzN/A
+1dU3Ljp9hj2zw1S5N2T7h3qQ7UE1f24heMbt0SRGWzHF2P2sT6FGO4Sns9yWLW8V
+BwIDAQABo1MwUTAdBgNVHQ4EFgQULKli11dONEz6SCIlcYPklzzAcqAwHwYDVR0j
+BBgwFoAULKli11dONEz6SCIlcYPklzzAcqAwDwYDVR0TAQH/BAUwAwEB/zANBgkq
+hkiG9w0BAQsFAAOCAgEAgLiwInIDWMf78mE6CfzrRyfy4CNAfyDdmhpBvVKo7OS8
+CsjOEGEPUy9rr/cFl0aEyZvOYqhrNDVr4vE+e6vOWHRkEHR73fDkmDS/LznlDVF7
+Re/AI9kbgPMzcc9VIetciQQ+Id41CTwnowasFM9xgRVJNZMdyalB4tB1mgVc9Hwl
+2f+VqmXH8SpvSrPfxKw6JARjqFthb1SR2dfeI41XANrEG4sKodO5Z7xnl6MH4yOH
+5C5nyOVMM6bIxOnOcbnUiPIv9sWBiMwsDisIaVG91cEN/eHIViUiqbKFD1w1uHPD
+CDbiYvPZC9Xo8ZHhmXBBFiXMaAgIzBmQLhbeFFXjztb5MueVC+ad+0a1bGXHIHNr
+0Oh8Aa26zAELJU0vKoX14Rd/xdgjGPbOfW6aCsxvOousg8pyIYw56zbrsx01g0FZ
+BXY3A7OoBtlgcSkwE9jL5fiJJPq7V+1RWvdMijTxag54mv05DuuHE3ItO/LxrUbb
+QcWXhSit+M2E7FxAlaxvO9Oip50dQ2GfaXAB1wMCbSmWqCSUCTBKFfAQvlIJbvsl
++KxcvxrpAxlPfAMlv//czizUm3WJ44tJxFd5B2uY5vFmITytM+36rC5uNYzFpM8b
+YwB0Tjb4nUVZc/qypQgOkZqYcQThn9ILUAfcoBlGSiWI+ebULj3PwETaScA+wYk=
+-----END CERTIFICATE-----
+)EOF";
 
 void debug(String level, String message)
 {
@@ -320,10 +356,15 @@ void setup()
   // scanNetworks();
 
   start_wifi_connection();
+  
   DEVICE_ID = String(WiFi.getHostname());
   String device_mac = String(WiFi.macAddress());
   build_topics(device_mac);
-  mqtt_client.setServer(MQTT_SERVER, 1883);
+  
+  // TLS
+  secureClient.setCACert(root_ca);
+
+  mqtt_client.setServer(MQTT_SERVER, 8883);
   mqtt_client.setBufferSize(51200);
   mqtt_client.setCallback(mqtt_handle_message);
   start_mqtt_connection();
@@ -362,11 +403,11 @@ void loop() {
     {
       debug("INFO", "Image taken successfully.");
 
-      bool messageResponse = chat.sendMessage("Motion Detected!");
-      debug("TELEGRAM MSG", messageResponse ? "OK" : "ERR");
+      // bool messageResponse = chat.sendMessage("Motion Detected!");
+      // debug("TELEGRAM MSG", messageResponse ? "OK" : "ERR");
 
-      bool photoResponse = chat.sendPhoto();
-      debug("TELEGRAM PHOTO", photoResponse ? "OK" : "ERR");
+      // bool photoResponse = chat.sendPhoto();
+      // debug("TELEGRAM PHOTO", photoResponse ? "OK" : "ERR");
     }
   } else if (!motion.isOk()) {
     debug("ERROR", motion.getErrorMessage());

@@ -1,0 +1,27 @@
+user mqtt_cps_rpi
+
+# # Lee eventos de todos los gates
+topic read gate/+/status
+topic read gate/+/access
+topic read gate/+/sync
+topic read gate/+/sync/request
+topic read gate/+/sync/logs
+
+# # Envía respuestas SOLO desde el servidor
+topic write server/response/+
+
+# # Respuestas de sincronización
+topic write gate/+/sync/response
+topic write gate/+/sync/logs/ack
+
+
+user mqtt_cps_esp32
+
+# Publica SU estado
+topic write gate/EC:64:C9:AC:C9:A4/status
+
+# # Publica solicitudes de acceso (imagen)
+topic write gate/EC:64:C9:AC:C9:A4/access
+
+# Recibe la decisión del servidor
+topic read server/response/EC:64:C9:AC:C9:A4
